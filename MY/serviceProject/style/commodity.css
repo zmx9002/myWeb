@@ -1,0 +1,105 @@
+@charset "utf-8";
+body{
+    background: #eee;
+}
+.banner-box,.banner{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.pic-list{
+    overflow: hidden;
+    width: 500%;
+}
+.pic-list li{
+    float: left;
+    width: 20%;
+}
+.pic-list li img{
+    display: block;
+    width: 100%;
+    height: 4.6rem;
+}
+.pic-mask{
+    position: absolute;
+    top:.3rem;
+    left: .5rem;
+    width: 1rem;
+    height: .4rem;
+    background: #fff;
+    border-radius: .02rem;
+    text-align: center;
+    line-height: .4rem;
+}
+.collect{
+    position: absolute;
+    bottom:.3rem;
+    right: .5rem;
+    display: block;
+    width: 1rem;
+    height: .4rem;
+    background: #fff;
+    border-radius: .02rem;
+    text-align: center;
+    line-height: .4rem;
+}
+section{
+    margin-bottom: .1rem;
+    background: #fff;
+    padding: .1rem .2rem;
+    overflow: hidden;
+}
+section:first-child{
+    padding: 0;
+}
+.shop-info .name{
+    line-height: .35rem;
+}
+.shop-info .name span{
+    color: #999;
+}
+.size-color{
+    line-height: .5rem;
+}
+.shop-con .avatar{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #eee;
+    margin: .2rem auto;
+}
+.shop-con .shop-name{
+    text-align: center;
+    line-height: .4rem;
+}
+.shop-container p{
+    line-height: .4rem;
+}
+.shop-container img{
+    width: 100%;
+}
+
+
+/*收藏夹*/
+.collect-wrap li{
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    padding: 0 .2rem;
+    margin-bottom: .1rem;
+    background: #fff;
+}
+.collect-wrap li input{
+    float: right;
+    margin-top: .3rem;
+}
+.add-btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    background: #fff;
+}

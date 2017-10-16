@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="width:40%; float:left">
+    文件选择: <input type="file" id="file_box"><br/>
+    <br/>------ 基础功能 ------ <br/>
+    <button onclick="init()">初始化</button><br/>
+	<button onclick="loginOut()">登出</button><br/>
+    <button onclick="register()">注册</button><br/>
+	<button onclick="isConnect()">获取连接状态</button><br/>
+	<button onclick="isInit()">获取初始化状态</button><br/>
+	<button onclick="isLogin()">获取登录状态</button><br/>
+
+    <button onclick="login()">登录</button><br/>
+    <button onclick="getSelfInfo()">获取个人信息</button>
+	 <button onclick="getResource()">获取资源URL</button><br/>
+    <br/>------ 发送消息 ------ <br/>
+	 <button onclick="msgRetract()">消息撤回</button><br/>
+    <button onclick="sendSingleMsg()">发送单聊消息</button><br/>
+	<button onclick="sendSingleCustom()">发送单聊自定义消息</button><br/>
+    <button onclick="sendSinglePic()">发送单聊图片消息</button><br/>
+    <button onclick="sendSingleFile()">发送单聊文件消息</button><br/>
+    <button onclick="sendSingleLocation()">发送单聊地理位置消息</button><br/>
+
+    <br>
+    <br/>------ 群组功能 ------ <br/>
+    <button onclick="createGroup()">新增群组</button><br/>
+    <button onclick="getGroups()">群组列表</button><br/>
+    <button onclick="getGroupMembers()">获取群组成员</button><br/>
+    <button onclick="addGroupMembers()">添加群组成员</button><br/>
+    <button onclick="delGroupMembers()">删除群组成员</button><br/>
+
+    <button onclick="updateGroupInfo()">更新群组信息</button><br/>
+    <button onclick="getGroupInfo()">获取群组信息</button><br/>
+    <button onclick="exitGroup()">退出群组</button><br/>
+    <button onclick="sendGroupMsg()">发送群聊消息</button><br/>
+	<button onclick="sendGroupCustom()">发送群聊自定义消息</button><br/>
+    <button onclick="sendGroupPic()">发送群聊图片消息</button><br/>
+    <button onclick="sendGroupFile()">发送群聊文件消息</button><br/>
+    <button onclick="sendGroupLocation()">发送群聊地理位置消息</button><br/>
+    <button onclick="addGroupShield()">屏蔽群</button><br/>
+	<button onclick="delGroupShield()">删除屏蔽</button><br/>
+    <br>
+    <button onclick="getConversation()">获取会话列表</button><br/>
+    <br>
+	<br/>------ 免打扰 ------ <br/>
+    <button onclick="noDisturb()">免打扰列表</button><br/>
+    <button onclick="addSingleDisturb()">添加单聊（支持跨应用）免打扰</button><br/>
+    <button onclick="delSingleDisturb()">删除单个免打扰</button><br/>
+    <button onclick="addGroupDisturb()">添加群免打扰</button><br/>
+    <button onclick="delGroupDisturb()">删除群免打扰</button><br/>
+    <button onclick="addGlobalDisturb()">添加全局免打扰</button><br/>
+    <button onclick="delGlobalDisturb()">删除全局免打扰</button><br/>
+    <br>
+	<br/>------ 黑名单------ <br/>
+    <button onclick="getBlackList()">获取黑名单</button><br/>
+    <button onclick="addBlack()">添加黑名单</button><br/>
+    <button onclick="delBlack()">删除黑名单</button><br/>
+    <br>
+	<br/>------ 个人设置 ------ <br/>
+    <button onclick="updateUserInfo()">修改用户信息</button><br/>
+    <button onclick="updateUserPic()">修改头像</button><br/>
+    <button onclick="updateUserPwd()">修改密码</button><br/>
+	<br/>------ 好友功能 ------<br/>
+	 <button onclick="getFriendList()">好友列表</button><br/>
+	 <button onclick="addFriend()">添加好友</button><br/>
+	 <button onclick="delFriend()">删除好友</button><br/>
+	 <button onclick="updateFriendMemo()">更新好友备注</button><br/>
+	<br/>
+</div>
+
+<div id="dashboard" style="width:60%; height: 800px; float:left; background: black; color: #eeeeee;overflow-y: scroll;"></div>
+
+</body>
+<script src='./jmessage-sdk-web.2.3.0.min.js'></script>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://7qn8xa.com1.z0.glb.clouddn.com/emoji.js"></script>
+
+<script>
+
+   
+	
+	
+    var across_user = 'xuqijin1';
+    var across_appkey = '426251cac0146ce0a08ca38f';
+	var target_nickname='xuqiin1';
+	var gid=22314375;
+	var target_gname='xu_test'
+
+    window.JIM = new JMessage({
+        debug : false
+    });
+
+	 JIM.onDisconnect(function(){
+	  console.log("【disconnect】");
+	 }); //异常断线监听
+	
+    function appendToDashboard(text) {
+        $('#dashboard').append('<p style="margin-left: 16px">' + text + '</p>')
+        $('#dashboard').emoji();
+    }
+
+
+
+    function getFile() {
+        var fd = new FormData();
+        var file = document.getElementById('file_box');
+        if(!file.files[0]) {
+		    appendToDashboard('error:' + '获取文件失败');
+            throw new Error('获取文件失败');
+        }
+        fd.append(file.files[0].name, file.files[0]);
+        return fd;
+    }
+
+    function init() {
+        JIM.init({
+            "appkey": "25b693b31d2c2ad5f072ef0c",
+            "random_str": "022cd9fd995849b58b3ef0e943421ed9",
+            "signature": "D97C2DDA3E46E5E6D482E9E8EE84AF93",
+             "timestamp": "1467967210887",
+			 "flag": 1
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+            appendToDashboard('success' + JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data))
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	init();
+	
+	
+	
+    function loginOut(){
+	     JIM.loginOut();
+	}
+	function register(){
+		  JIM.register({
+            'username' : 'jjiiibbdss1d',
+			'password': '123456'
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+            appendToDashboard(JSON.stringify(data));
+          }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data))
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	 function isConnect(){
+	   console.log('isConnect:'+JIM.isConnect());
+	  appendToDashboard('isConnect : ' +JIM.isConnect());
+	}
+	
+	function isInit(){
+	  console.log('isInit:'+JIM.isInit());
+	  appendToDashboard('isInit : ' +JIM.isInit());
+	}
+	
+     function isLogin(){
+	   console.log('isLogin:'+JIM.isLogin());
+	  appendToDashboard('isLogin : ' +JIM.isLogin());
+	}
+	
+    function login() {
+        JIM.login({
+            'username' : 'JSCrossTest',
+            'password' : '123456'
+        }).onSuccess(function(data) {
+			
+            console.log('success:' + JSON.stringify(data));
+            appendToDashboard(JSON.stringify(data));
+            JIM.onMsgReceive(function(data) {
+                data = JSON.stringify(data);
+                console.log('msg_receive:' + data);
+                appendToDashboard('msg_receive:' + data);
+
+            });
+
+            JIM.onEventNotification(function(data) {
+                console.log('event_receive: ' + JSON.stringify(data));
+                appendToDashboard('event_receive: ' +JSON.stringify(data));
+            });
+			
+			JIM.onSyncConversation(function(data) { //离线消息同步监听
+                console.log('event_receive: ' + data);
+                appendToDashboard('event_receive: ' +JSON.stringify(data));
+            });
+			
+           JIM.onUserInfUpdate(function(data) {
+                console.log('onUserInfUpdate : ' + JSON.stringify(data));
+                appendToDashboard('onUserInfUpdate : ' +JSON.stringify(data));
+            });
+	 
+			
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			 appendToDashboard('error: ' +JSON.stringify(data));
+        }).onTimeout(function(data) {
+            console.log('timeout:' + JSON.stringify(data));
+			 appendToDashboard('timeout: ' +JSON.stringify(data));
+        });
+    }
+
+    function getSelfInfo() {
+        JIM.getUserInfo({
+            'username' : 'JSCrossTest'
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			 appendToDashboard('error: ' +JSON.stringify(data));
+        });
+		
+    }
+
+	function getResource(){
+	   JIM.getResource({'media_id' : 'qiniu/image/j/9091C8D651258AC538FB5E033041EE15'}).onSuccess(function(data){
+				      console.log('success:' + JSON.stringify(data));
+			          appendToDashboard('success: ' +JSON.stringify(data));
+				 }).onFail(function(da){
+				      console.log('success:' + JSON.stringify(data));
+			          appendToDashboard('success: ' +JSON.stringify(data));
+				 });
+	}
+
+    function sendSingleMsg() {
+        JIM.sendSingleMsg({
+            'target_username' : across_user,
+            'content' : '12221',
+            'appkey' : across_appkey,
+			'no_offline' : false,
+			'no_notification' : false
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+	
+	function createGroup(){
+		 JIM.createGroup({
+            'group_name' :  'new_group',
+            'group_description' : 'Hi, JiGuang'
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+
+	function getGroups(){
+		JIM.getGroups().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function updateGroupInfo(){
+		JIM.updateGroupInfo( {'group_name' : 'xu_test','group_description' : 'Hi, JiGuang','gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+		
+	function addGroupShield(){
+	     JIM.addGroupShield({'gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+		function delGroupShield(){
+	     JIM.delGroupShield({'gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function getGroupInfo(){
+			JIM.getGroupInfo({'gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function exitGroup(){
+		JIM.exitGroup({'gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data))
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function getGroupMembers(){
+		JIM.getGroupMembers({'gid':gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data)); 
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function addGroupMembers(){
+		JIM.addGroupMembers({'gid':gid,'member_usernames':[{'username': across_user,'appkey': across_appkey}]}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data))
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function delGroupMembers(){
+		JIM.delGroupMembers({'gid':gid,'member_usernames':[{'username': across_user,'appkey': across_appkey}]}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+    function sendGroupMsg() {
+        JIM.sendGroupMsg({
+            'target_gid' : gid,
+	    
+            'content' : 'haha',
+			'at_list' : [{'username':across_user,'appkey':across_appkey}]
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+	function sendGroupCustom(){
+	    JIM.sendGroupCustom({
+            'target_gid' : gid,
+			'target_gname' : target_gname,
+            'custom' : {'k1':'v1','k2':'v2'}
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	
+	function sendSingleCustom(){
+	  JIM.sendSingleCustom({
+            'target_username' : across_user,
+			'target_nickname' : target_nickname,
+            'custom' : {'k1':'v1','k2':'v2'},
+			'appkey' : across_appkey
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+
+    function sendAcrossSingleMsg() {
+        JIM.sendSingleMsg({
+           'target_username' : across_user,
+		   'target_nickname' : target_nickname,
+            'content' : 'Hi, JiGuang',
+			'appkey' : across_appkey
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+
+
+    function sendSinglePic() {
+        JIM.sendSinglePic({
+            'target_username' : across_user,
+			'target_nickname' : target_nickname,
+			'appkey' : across_appkey,
+            'image' : getFile()
+        }).onSuccess(function(data,msg) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+			appendToDashboard('send: ' +JSON.stringify(msg));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+    function sendGroupPic() {
+        JIM.sendGroupPic({
+            'target_gid' : gid,
+			'target_gname' : target_gname,
+            'image' : getFile()
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+
+    function sendSingleFile() {
+        JIM.sendSingleFile({
+            'file' : getFile(),
+			'target_username' : across_user,
+			'target_nickname' : target_nickname,
+			'appkey' : across_appkey,
+			'extras': {'key':'val','key2':'val2'}
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+    function sendGroupFile() {
+        JIM.sendGroupFile({
+            'target_gid' : gid,
+			'target_gname' : target_gname,
+            'file' : getFile()
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+    function sendSingleLocation() {
+        JIM.sendSingleLocation({
+            'target_username' : across_user,
+			'target_nickname' : target_nickname,
+			'appkey' : across_appkey,
+            'latitude' : 38.6577668476,
+            'longitude' : 104.0829574963,
+            'scale' : 1,
+            'label' : '广东省深圳市南山区'
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+    function sendGroupLocation() {
+        JIM.sendGroupLocation({
+            'target_gid' : gid,
+            'latitude' : 38.6577668476,
+            'longitude' : 104.0829574963,
+            'scale' : 1,
+            'label' : '广东省深圳市南山区'
+        }).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+
+  function getConversation() {
+        JIM.getConversation().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function noDisturb() {
+        JIM.getNoDisturb().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+
+  function addSingleDisturb() {
+        JIM.addSingleNoDisturb({'appkey': across_appkey,'target_name' : across_user}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function delSingleDisturb() {
+        JIM.delSingleNoDisturb({'appkey': across_appkey,'target_name' : across_user}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function addGroupDisturb() {
+        JIM.addGroupNoDisturb({'gid': gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function delGroupDisturb() {
+        JIM.delGroupNoDisturb({'gid': gid}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+	
+
+  function addGlobalDisturb() {
+        JIM.addGlobalNoDisturb().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+  function delGlobalDisturb() {
+        JIM.delGlobalNoDisturb().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+
+
+  function getBlackList() {
+        JIM.getBlacks().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function addBlack() {
+        JIM.addSingleBlacks({'member_usernames':[{'username': across_user,'appkey':across_appkey}]}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+	function delBlack() {
+        JIM.delSingleBlacks({'member_usernames':[{'username': across_user,'appkey':across_appkey}]}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	
+
+   function updateUserInfo() {
+        JIM.updateSelfInfo({'nickname':'xuqijin_nick_name','address':'深圳'}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+  function updateUserPic() {
+        JIM.updateSelfAvatar({'avatar' : getFile()}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+
+	
+
+	function updateUserPwd() {
+        JIM.updateSelfPwd({'old_pwd' : '123456','new_pwd':'123456','is_md5' : false}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+	function getFriendList(){
+	  JIM.getFriendList().onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function addFriend(){
+	  JIM.addFriend({'appkey':across_appkey,'target_name':across_user,'from_type':'1','why':'hi,friend'}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function updateFriendMemo(){
+	  JIM.updateFriendMemo({'appkey':across_appkey,'target_name':across_user,'memo_name':'test_memo_update','memo_others':'test_others_update_yaya'}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function delFriend(){
+	  JIM.delFriend({'appkey':across_appkey,'target_name':across_user}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+			appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+			appendToDashboard('error: ' +JSON.stringify(data));
+        });
+	}
+	
+	function msgRetract(msg_id){
+        JIM.msgRetract({"msg_id": msg_id}).onSuccess(function(data) {
+            console.log('success:' + JSON.stringify(data));
+            appendToDashboard('success: ' +JSON.stringify(data));
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+            appendToDashboard('error: ' +JSON.stringify(data));
+        });
+    }
+</script>
+</html>

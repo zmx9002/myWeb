@@ -1,0 +1,128 @@
+@charset "utf-8";
+body{
+    background: #eee;
+}
+.search{
+    padding: .2rem;
+}
+.search input{
+    display: block;
+    width: 7rem;
+    height: .4rem;
+    border-radius: .05rem;
+    padding: 0 .2rem;
+}
+.link-box{
+    background: #fff;
+    padding: .2rem 0;
+}
+.link-box li{
+    display: block;
+    float: left;
+    width: 25%;
+    margin-bottom: .2rem;
+}
+.link-box li i{
+    display:block;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background: #eeeeee;
+    margin: 0 auto;
+}
+.link-box li p{
+    text-align: center;
+}
+.banner-box,.banner{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.pic-list{
+    overflow: hidden;
+    width: 500%;
+}
+.pic-list li{
+    float: left;
+    width: 20%;
+}
+.pic-list li img{
+    display: block;
+    width: 100%;
+    height: 3.42rem;
+}
+.pic-mask{
+    height: .4rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.pic-mask nav{
+    height: .4rem;
+    position: absolute;
+    right:.26rem;
+}
+.pic-mask nav a{
+    float: left;
+    width: .2rem;
+    height: .2rem;
+    border-radius: .1rem;
+    background: #fff;
+    opacity: .5;
+    margin-left: .15rem;
+}
+.pic-mask nav a.active{
+    opacity: 1;
+}
+.shop-list{
+    margin: .1rem 0 2rem 0;
+}
+.shop-list li{
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: .1rem;
+    padding:.2rem;
+}
+.shop-list li .avatar{
+    width: .8rem;
+    height: .8rem;
+    border-radius: .4rem;
+    background: #eee;
+    overflow: hidden;
+    float: left;
+}
+.shop-list li .avatar img{
+    display: block;
+    width: .8rem;
+    height: .8rem;
+}
+.shop-list li .shop{
+    float: left;
+    width: 4.4rem;
+    margin-left: .2rem;
+}
+.shop-list li .shop h3{
+     font-size: .14rem;
+     line-height: .4rem;
+     color: #333;
+}
+.shop-list li .shop p{
+    font-size: .12rem;
+    line-height: .3rem;
+    color: #666;
+}
+.shop-list .shop-in{
+    display: block;
+    float: left;
+    width:1.7rem;
+    height: .5rem;
+    text-align: center;
+    line-height: .5rem;
+    border-radius: .05rem;
+    border: 1px solid #666;
+    font-size: .14rem;
+    color: #333;
+    margin-top: .1rem;
+}

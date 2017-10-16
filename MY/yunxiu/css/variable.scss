@@ -1,0 +1,64 @@
+@charset "utf-8";
+//变量
+$font-color6:#666;
+$font-color3:#333;
+$font-color9:#999;
+$wrap:1000px;
+
+//兼容处理
+@mixin flex{
+  display:-webkit-flex;
+  display: flex;
+}
+@mixin radius($prop){
+  -webkit-border-radius: $prop;
+  -moz-border-radius: $prop;
+ border-radius: $prop;
+}
+@mixin shadow($prop){
+  -webkit-box-shadow: $prop;
+  -moz-box-shadow: $prop;
+  -o-box-shadow: $prop;
+  box-shadow: $prop;
+}
+
+//动画部分
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content
+  }
+  @-moz-keyframes #{$name} {
+    @content
+  }
+  @-ms-keyframes #{$name} {
+    @content
+  }
+  @-webkit-keyframes #{$name} {
+    @content
+  }
+  @keyframes #{$name} {
+    @content
+  }
+}
+
+@mixin animation($prop) {
+  -webkit-animation: $prop;
+  -moz-animation: $prop;
+  -o-animation: $prop;
+  animation: $prop;
+}
+
+@mixin transition($prop){
+  -webkit-transition: $prop;
+  -moz-transition: $prop;
+  -o-transition: $prop;
+  transition: $prop;
+}
+
+@mixin transform($prop){
+  -webkit-transform: $prop;
+  -o-transform: $prop;
+  -moz-transform: $prop;
+  -ms-transform: $prop;
+  transform: $prop;
+}

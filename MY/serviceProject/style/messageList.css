@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+.message-list li{
+    height: 1.2rem;
+    background: #fff;
+    margin-bottom: 1px;
+    padding: .2rem;
+    overflow: hidden;
+}
+.message-list li .avatar{
+    width: .8rem;
+    height: .8rem;
+    float: left;
+    margin-right: .4rem;
+}
+.message-list li .avatar img{
+    display: block;
+    width: .8rem;
+    height: .8rem;
+}
+.message-list li .msg{
+    width: 4.8rem;
+    height: .8rem;
+    float: left;
+}
+.message-list li .msg h3{
+    font-size: .2rem;
+    color: #333;
+    line-height: .4rem;
+}
+.message-list li .msg p{
+    width: 100%;
+    height: .4rem;
+    overflow: hidden;
+    line-height: .4rem;
+    font-size: .14rem;
+    color: #999;
+}
+.message-list li .time{
+    float: right;
+    height: .8rem;
+    line-height: .8rem;
+    color: #999;
+}

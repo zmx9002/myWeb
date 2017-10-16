@@ -1,0 +1,310 @@
+body, ul, li, p, h1, h2, h3, h4, h5, h6, img, br, hr, table, tr, td, dl, dt, dd, form {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Arial,"Microsoft Yahei";
+  font-size: 12px;
+  color: #333; }
+
+.clear:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0; }
+
+.clear {
+  zoom: 1; }
+
+ul, li {
+  list-style: none; }
+
+img {
+  border: none; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+a:hover {
+  color: #333; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+@font-face {
+  font-family: 'iconfont';
+  /* project id 366338 */
+  src: url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.eot");
+  src: url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.woff") format("woff"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.ttf") format("truetype"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.svg#iconfont") format("svg"); }
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 14px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.nav-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); }
+
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.logo {
+  width: 170px;
+  height: 25px;
+  margin-top: 15px;
+  background: url("../images/logo-new.png") no-repeat; }
+
+.nav-content li {
+  display: block;
+  width: 100px;
+  height: 60px;
+  float: left; }
+.nav-content a {
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 60px; }
+.nav-content .current-menu a {
+  color: #49b748; }
+
+footer {
+  height: 60px;
+  background: #000;
+  text-align: center;
+  line-height: 60px;
+  font-size: 12px;
+  color: #333; }
+
+@font-face {
+  font-family: 'iconfont';
+  /* project id 366338 */
+  src: url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.eot");
+  src: url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.woff") format("woff"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.ttf") format("truetype"), url("//at.alicdn.com/t/font_azj47xh06l8tzkt9.svg#iconfont") format("svg"); }
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.top-bg {
+  width: 100%;
+  height: 366px;
+  background: url("../images/case-title.jpg") no-repeat center; }
+  .top-bg .title-main {
+    width: 1070px;
+    height: 306px;
+    margin: 60px auto 0;
+    padding: 60px 0 0 130px; }
+  .top-bg h3 {
+    font-size: 36px;
+    color: #fff;
+    line-height: 106px;
+    font-weight: normal; }
+  .top-bg p {
+    display: block;
+    width: 695px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 25px; }
+
+.case-box {
+  width: 100%;
+  overflow: hidden;
+  background: url("../images/xingkong1.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed; }
+  .case-box h3 {
+    height: 112px;
+    line-height: 112px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: normal; }
+    .case-box h3 i {
+      font-size: 20px; }
+    .case-box h3 .fa-mobile {
+      font-size: 28px; }
+
+.list-box {
+  width: 1070px;
+  height: auto;
+  margin: 0 auto; }
+  .list-box ul {
+    display: block;
+    width: 1070px;
+    overflow: hidden; }
+  .list-box li {
+    position: relative;
+    display: block;
+    width: 340px;
+    height: 215px;
+    float: left;
+    margin: 0 24px 45px 0;
+    overflow: hidden; }
+    .list-box li:hover .shade {
+      opacity: 1;
+      -webkit-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+    .list-box li:hover .more-icon {
+      -webkit-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+      -webkit-transition: all 0.5s ease-out 0.1s;
+      -moz-transition: all 0.5s ease-out 0.1s;
+      -o-transition: all 0.5s ease-out 0.1s;
+      transition: all 0.5s ease-out 0.1s; }
+    .list-box li:hover .case-title {
+      -webkit-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+      -webkit-transition: all 0.5s ease-out 0.25s;
+      -moz-transition: all 0.5s ease-out 0.25s;
+      -o-transition: all 0.5s ease-out 0.25s;
+      transition: all 0.5s ease-out 0.25s; }
+    .list-box li:hover .case-introduction {
+      -webkit-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+      -webkit-transition: all 0.5s ease-out 0.16s;
+      -moz-transition: all 0.5s ease-out 0.16s;
+      -o-transition: all 0.5s ease-out 0.16s;
+      transition: all 0.5s ease-out 0.16s; }
+    .list-box li:hover .case-qrcode {
+      display: block;
+      width: 150px;
+      height: 150px;
+      float: left;
+      margin: 0 20px; }
+  .list-box li:nth-child(3n) {
+    margin-right: 0px; }
+  .list-box .more-box {
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); }
+    .list-box .more-box .more {
+      width: 270px;
+      height: 175px;
+      background: rgba(71, 70, 70, 0.5);
+      padding: 40px 20px 0 60px; }
+    .list-box .more-box img {
+      display: block;
+      width: 88px;
+      height: 135px;
+      float: left; }
+    .list-box .more-box .p-text {
+      width: 160px;
+      color: #fff;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      margin-top: 40px;
+      float: left; }
+  .list-box img {
+    display: block;
+    width: 340px;
+    height: 215px; }
+  .list-box .shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 340px;
+    height: 175px;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding-top: 40px;
+    opacity: 0;
+    -webkit-transform: translate(0px, 180px);
+    -moz-transform: translate(0px, 180px);
+    -o-transform: translate(0px, 180px);
+    -ms-transform: translate(0px, 180px);
+    transform: translate(0px, 180px);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+  .list-box a {
+    display: block;
+    width: 340px;
+    height: 215px; }
+  .list-box .more-icon {
+    font-size: 34px;
+    color: #fff;
+    margin-bottom: 5px;
+    -webkit-transform: translate(0px, 100px);
+    -moz-transform: translate(0px, 100px);
+    -o-transform: translate(0px, 100px);
+    -ms-transform: translate(0px, 100px);
+    transform: translate(0px, 100px);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+  .list-box .case-title {
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 10px;
+    -webkit-transform: translate(0px, 100px);
+    -moz-transform: translate(0px, 100px);
+    -o-transform: translate(0px, 100px);
+    -ms-transform: translate(0px, 100px);
+    transform: translate(0px, 100px);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+  .list-box .case-introduction {
+    padding: 0 20px;
+    color: #f0f0f0;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 2rem;
+    -webkit-transform: translate(0px, 100px);
+    -moz-transform: translate(0px, 100px);
+    -o-transform: translate(0px, 100px);
+    -ms-transform: translate(0px, 100px);
+    transform: translate(0px, 100px);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+
+/*# sourceMappingURL=case.css.map */

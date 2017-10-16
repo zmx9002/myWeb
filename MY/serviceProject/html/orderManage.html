@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-mw="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <title>订单管理</title>
+    <link type="text/css" rel="stylesheet" href="../style/common.css">
+    <link type="text/css" rel="stylesheet" href="../style/orderManage.css">
+</head>
+<body>
+    <section class="order-title">
+        <ul>
+            <li class="active">已下单</li>
+            <li>待付款</li>
+            <li>待发货</li>
+            <li>待确认</li>
+            <li>已完成</li>
+            <li>已取消</li>
+        </ul>
+    </section>
+    <section id="orderListCon">
+
+    </section>
+
+<script type="text/html" id="orderListTpl">
+    {{if json.success }}
+    {{if json.data && json.data.orderList}}
+    {{each json.data.orderList as item}}
+    <div class="order-box">
+        <div class="order-num">
+            {{if item.delay }}
+            <span class="tips">延迟发货</span>
+            {{/if}}
+            订单编号：{{item.goodsNum}}
+        </div>
+        <div class="order-name">{{item.shopName}}</div>
+        <div class="order-commodity clearfix">
+            <div class="commodity-pic f_left"><img src="{{item.shopImg}}"/></div>
+            <div class="commodity-inof f_left">
+                <h3>{{item.shopTitle}}</h3>
+                <p>货号:{{item.goodsNum}}</p>
+            </div>
+            <div class="price f_right">{{item.price}}</div>
+        </div>
+        {{each item.sizeList as subItem}}
+        <div class="size-info">
+            <p>颜色：{{subItem.color}}；尺码：{{subItem.size}} <span>x{{subItem.num}}</span></p>
+            <p>单价<span>{{subItem.singlePrice}}</span></p>
+        </div>
+        {{/each}}
+        <div class="order-total">
+            共{{item.totalNum}}件，总计:<span>{{item.totalPrice}}</span>(运费￥0.00)
+        </div>
+        <div class="order-btn">
+            <a href="javascript:;" class="cancel grey">取消订单</a>
+            <a href="javascript:;" class="orders orange">已下单</a>
+            <!--<a href="javascript:;" class="cancel grey">取消订单</a>-->
+            <!--<a href="javascript:;" class="pay">付款</a>-->
+            <!--<a href="javascript:;" class="wait-send">待发货</a>-->
+            <!--<a href="javascript:;" class="wait-send">待确认</a>-->
+            <!--<a href="javascript:;" class="completed">已完成</a>-->
+            <!--<a href="javascript:;" class="cancel-ready">已取消</a>-->
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+    {{/if}}
+</script>
+<script type="text/javascript" src="../plugins/fastclick.min.js"></script>
+<script type="text/javascript" src="../plugins/teamlate.js"></script>
+<script type="text/javascript" src="../plugins/zepto.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/shopIndex.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $.ajax({
+            url:'../json/orderManage.json',
+            success:function(result){
+                if(result.success){
+                    var html = template('orderListTpl',{json:result});
+                    $('#orderListCon').html(html)
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

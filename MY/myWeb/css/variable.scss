@@ -1,0 +1,56 @@
+@charset "utf-8";
+//颜色
+$color-f:#fff;
+$color-3:#333;
+$color-6:#666;
+$color-9:#999;
+$main-color:#49b748;
+
+@mixin box-shadow($prop){
+  -webkit-box-shadow: $prop;
+  -moz-box-shadow: $prop;
+  -o-box-shadow: $prop;
+  box-shadow: $prop;
+}
+@mixin transition($prop){
+  -webkit-transition: $prop;
+  -moz-transition: $prop;
+  -o-transition: $prop;
+  transition: $prop;
+}
+@mixin transform($prop){
+  -webkit-transform: $prop;
+  -moz-transform: $prop;
+  -o-transform: $prop;
+  -ms-transform: $prop;
+  transform: $prop;
+}
+@mixin radius($prop){
+  -webkit-border-radius: $prop;
+  -moz-border-radius: $prop;
+  border-radius: $prop;
+}
+@mixin animation($prop) {
+  -webkit-animation: $prop;
+  -moz-animation: $prop;
+  -o-animation: $prop;
+  animation: $prop;
+}
+
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content
+  }
+  @-moz-keyframes #{$name} {
+    @content
+  }
+  @-ms-keyframes #{$name} {
+    @content
+  }
+  @-webkit-keyframes #{$name} {
+    @content
+  }
+  @keyframes #{$name} {
+    @content
+  }
+}

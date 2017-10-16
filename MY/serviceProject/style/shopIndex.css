@@ -1,0 +1,83 @@
+@charset "utf-8";
+.avatar-box{
+    overflow: hidden;
+    padding: .2rem;
+}
+.avatar{
+    width: 1rem;
+    height: 1rem;
+    border-radius: .5rem;
+    background: #eee;
+    margin: .6rem auto 0 auto;
+}
+.shop-name{
+    text-align: center;
+    line-height: .6rem;
+}
+.follow{
+    display: block;
+    width: 2rem;
+    height: .5rem;
+    text-align: center;
+    text-decoration: none;
+    line-height: .5rem;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    border-radius: .1rem;
+}
+.search-box{
+    padding: .2rem;
+    background: #eee;
+}
+.search{
+    width: 7rem;
+    height: .5rem;
+    border-radius: .08rem;
+    padding: 0 .5rem;
+}
+.tab-box{
+    height: 1rem;
+    overflow-y: auto;
+}
+.tab-box a{
+    float: left;
+    padding: 0 .4rem;
+    line-height: 1rem;
+}
+
+.commodity-list li{
+    width: 3.6rem;
+    overflow: hidden;
+    background: #fff;
+    float: left;
+    margin: .07rem;
+}
+.commodity-list .pic{
+    width: 3.6rem;
+    height: 1.6rem;
+}
+.commodity-list .pic img{
+    width: 3.6rem;
+    height: 1.6rem;
+}
+.commodity-list .shop-name{
+    padding: 0 .08rem;
+    line-height: .3rem;
+    height: .6rem;
+    overflow: hidden;
+}
+.commodity-list .shop-num{
+    line-height: .4rem;
+    color: #999;
+}
+
+.commodity-list .shop-sale{
+    padding: 0 .1rem .4rem .1rem;
+}
+footer a{
+    display: block;
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+

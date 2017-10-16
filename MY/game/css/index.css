@@ -1,0 +1,739 @@
+@charset "utf-8";
+
+body,div,section,span{margin: 0px; padding: 0px;}
+body{font-family: "Microsoft Yahei";height: 100%;}
+section{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+/*第一屏*/
+.bg-color1{
+    background: #2d4081;
+}
+.bg-page1{
+    width: 429px;
+    height: 429px;
+    border: 1px solid #1f2b57;
+    background: #233264;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin: -214px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 113px #283972,
+    0 0 0 114px #223161,
+    0 0 0 193px #2a3d79,
+    0 0 0 194px #273971,
+    0 0 0 254px #2c3f7e,
+    0 0 0 255px #2a3c79;
+}
+.bg-star{
+    width: 100%;
+    height: 100%;
+    background: url("../images/page1-star.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+.main-page1{
+    width: 429px;
+    height: 429px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin: -214px;
+}
+.main-page1 .rocket{
+    width: 165px;
+    height: 233px;
+    position: absolute;
+    top:-29px;
+    left: 48px;
+    background: url("../images/page1-text-ico4.png") no-repeat;
+    opacity: 0;
+}
+.main-page1 .thanks{
+    width: 399px;
+    height: 228px;
+    position: absolute;
+    top:43px;
+    left: 48px;
+    background: url("../images/page1-text-ico1.png") no-repeat;
+    opacity: 0;
+}
+.main-page1 .widthyou{
+    width: 364px;
+    height: 134px;
+    position: absolute;
+    top:208px;
+    left: 48px;
+    background: url("../images/page1-text-ico2.png") no-repeat;
+    opacity: 0;
+}
+.main-page1 .miaov{
+    width: 193px;
+    height: 82px;
+    position: absolute;
+    top:-7px;
+    left: 209px;
+    background: url("../images/page1-text-ico3.png") no-repeat;
+    opacity: 0;
+}
+.arrow{
+    width: 90px;
+    height: 65px;
+    position: absolute;
+    left: 50%;
+    bottom:40px;
+    margin-left:-45px;
+    background: url("../images/up.png") no-repeat;
+    opacity: 0;
+    animation:arrow 1.5s linear 0s infinite;
+    -wekbit-animation:arrow 1.5s linear 0s infinite;
+}
+/*入场动画*/
+section.section-in .main-page1 .rocket{
+    animation:rocket 1s forwards;
+    -wekbit-animation:rocket 1s forwards;
+}
+section.section-in .main-page1 .thanks{
+    animation:thanks 1s ease-out 1s forwards;
+    -wekbit-animation:thanks 0s ease-out 1s forwards;
+}
+section.section-in .main-page1 .widthyou{
+    animation:thanks 1s ease-out 1s forwards;
+    -wekbit-animation:thanks 1s ease-out 1s forwards;
+}
+section.section-in .main-page1 .miaov{
+    animation:miaov 1s ease-out 1s forwards;
+    -wekbit-animation:miaov 1s ease-out 1s forwards;
+}
+/*出场动画*/
+section.section-out .bg-page1{
+    animation:circleOut 1s linear forwards;
+    -wekbit-animation:circleOut 1s linear forwards;
+}
+section.section-out .bg-star{
+    animation:starOut 1s linear forwards;
+    -wekbit-animation:starOut 1s linear forwards;
+}
+section.section-out .main-page1 .rocket{
+    opacity: 1;
+    animation:rocketOut 1s forwards;
+    -wekbit-animation:rocket 1s forwards;
+}
+section.section-out .main-page1 .thanks{
+    opacity: 1;
+    animation:thanksOut 1s ease-out .2s forwards;
+    -wekbit-animation:thanksOut 0s ease-out .2s forwards;
+}
+section.section-out .main-page1 .widthyou{
+    opacity: 1;
+    animation:thanksOut 1s ease-out .2s forwards;
+    -wekbit-animation:thanksOut 1s ease-out .2s forwards;
+}
+section.section-out .main-page1 .miaov{
+    opacity: 0;
+    animation:miaovOut 1s ease-out 1s forwards;
+    -wekbit-animation:miaovOut 1s ease-out 1s forwards;
+}
+
+.music{
+    width: 50px;
+    height: 47px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+.music-run{
+    background: url("../images/paly.png") no-repeat;
+    animation: run 3s linear infinite;
+    -webkit-animation: run 3s linear infinite;
+}
+.music-stop{
+    background: url("../images/pause.png") no-repeat;
+}
+.jind{
+    width:460px;
+    height: 28px;
+    border: 1px solid #4091dc;
+    border-radius: 14px;
+    position: absolute;
+    bottom:119px;
+    left: 50%;
+    margin-left:-231px;
+    overflow: hidden;
+}
+.jind span{
+    display: block;
+    width: 0;
+    height: 28px;
+    background: #4091dc;
+}
+
+/*第二屏*/
+.bg-color2{
+    background: #5f4ac3;
+    display: none;
+}
+.bg-page2{
+    width: 428px;
+    height: 428px;
+    border: 1px solid #3e3180;
+    background: #4a3a98;
+    position: absolute;
+    bottom:155px;
+    left: 50%;
+    margin: -214px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 113px #5442ad,
+    0 0 0 114px #463791,
+    0 0 0 193px #5946b8,
+    0 0 0 194px #4c3c9d,
+    0 0 0 254px #5d49bf,
+    0 0 0 255px #5946b6;
+    opacity: 0;
+}
+.main-page2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.land{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 640px;
+    height: 215px;
+    background: url("../images/page2-ico1.png") no-repeat;
+    background-size: 640px 215px;
+    opacity: 0;
+}
+.person{
+    position: absolute;
+    bottom: 156px;
+    left: 50%;
+    margin-left: -184px;
+    width: 365px;
+    height: 445px;
+    background: url("../images/page2-ico2.png") no-repeat;
+    opacity: 0;
+}
+.pop{
+    position: absolute;
+    bottom: 556px;
+    left: 42px;
+    width: 223px;
+    height: 156px;
+    background: url("../images/page2-ico8.png") no-repeat;
+    opacity: 0;
+}
+.light{
+    position: absolute;
+    bottom: 185px;
+    left: 137px;
+    width: 110px;
+    height: 115px;
+    background: url("../images/page2-ico3.png") no-repeat;
+    opacity: 0;
+}
+.page2-rocket{
+    position: absolute;
+    bottom: 146px;
+    right: 77px;
+    width: 166px;
+    height: 233px;
+    background: url("../images/page1-text-ico4.png") no-repeat;
+    opacity: 0;
+}
+.planet1{
+    position: absolute;
+    bottom: 331px;
+    right: 173px;
+    width: 38px;
+    height: 42px;
+    background: url("../images/page2-ico4.png") no-repeat;
+    opacity: 0;
+}
+.sun{
+    position: absolute;
+    top: 492px;
+    right: 162px;
+    width: 100px;
+    height: 101px;
+    background: url("../images/page2-ico5.png") no-repeat;
+    opacity: 0;
+}
+.planet2{
+    position: absolute;
+    top: 274px;
+    right: 280px;
+    width: 41px;
+    height: 42px;
+    background: url("../images/page2-ico6.png") no-repeat;
+    opacity: 0;
+}
+.planet3{
+    position: absolute;
+    top: 142px;
+    left: 78px;
+    width: 63px;
+    height: 62px;
+    background: url("../images/page2-ico7.png") no-repeat;
+    opacity: 0;
+}
+.page2-text{
+    position: absolute;
+    top: 187px;
+    left:50%;
+    margin-left: -228px;
+    width: 457px;
+    height: 96px;
+    background: url("../images/page2-ico9.png") no-repeat;
+    opacity: 0;
+}
+section.section-in .bg-page2{
+    animation:page2CircleIn 1s linear forwards;
+    -wekbit-animation:page2CircleIn 1s linear forwards;
+}
+section.section-in .land{
+    animation: landIn .2s ease-out 1s forwards;
+    -webkit-animation: landIn .2s ease-out 1s forwards;
+}
+section.section-in .person{
+    animation: personIn .5s ease-out 1.2s forwards;
+    -webkit-animation: personIn .5s ease-out 1.2s forwards;
+}
+section.section-in .planet2{
+    animation: personIn .2s ease-out 1.7s forwards;
+    -webkit-animation: personIn .2s ease-out 1.7s forwards;
+}
+section.section-in .planet3{
+    animation: personIn .2s ease-out 1.8s forwards;
+    -webkit-animation: personIn .2s ease-out 1.8s forwards;
+}
+section.section-in .sun{
+    animation: personIn .2s ease-out 2s forwards;
+    -webkit-animation: personIn .2s ease-out 2s forwards;
+}
+section.section-in .pop{
+    animation: personIn .2s ease-out 2.1s forwards;
+    -webkit-animation: personIn .2s ease-out 2.1s forwards;
+}
+section.section-in .planet1{
+    animation: personIn .2s ease-out 2.2s forwards;
+    -webkit-animation: personIn .2s ease-out 2.2s forwards;
+}
+section.section-in .page2-rocket{
+    animation: page2rocketIn .4s ease-out 2.4s forwards;
+    -webkit-animation: page2rocketIn .4s ease-out 2.4s forwards;
+}
+section.section-in .light{
+    animation: landIn .3s ease-out 2.6s forwards;
+    -webkit-animation: landIn .3s ease-out 2.6s forwards;
+}
+
+section.section-in .page2-text{
+    animation: personIn .6s ease-out 2.8s forwards;
+    -webkit-animation: personIn .6s ease-out 2.8s forwards;
+}
+section.section-out .bg-page2{
+    opacity: 1;
+    animation: page2CircleOut .4s ease-out 0s forwards;
+    -webkit-animation: page2CircleOut .4s ease-out 0s forwards;
+}
+section.section-out .land{
+    opacity: 1;
+    animation: landOut .4s ease-out .1s forwards;
+    -webkit-animation: landOut .4s ease-out .1s forwards;
+}
+section.section-out .person{
+    opacity: 1;
+    animation: personOut .6s ease-out .1s forwards;
+    -webkit-animation: personOut .6s ease-out .1s forwards;
+}
+section.section-out .pop{
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .light{
+    opacity: 1;
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .rocket{
+    opacity: 1;
+    animation: page2rocketOut .4s ease-out .2s forwards;
+    -webkit-animation: page2rocketOut .4s ease-out .2s forwards;
+}
+section.section-out .planet1{
+    opacity: 1;
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .sun{
+    opacity: 1;
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .planet2{
+    opacity: 1;
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .planet3{
+    opacity: 1;
+    animation: plantOut .4s ease-out .2s forwards;
+    -webkit-animation: plantOut .4s ease-out .2s forwards;
+}
+section.section-out .page2-text{
+    opacity: 1;
+    animation: page2TextOut .4s ease-out .2s forwards;
+    -webkit-animation: page2TextOut .4s ease-out .2s forwards;
+}
+
+
+/*第三屏*/
+.bg-color3{
+    background:#2d4081;
+    display: none;
+}
+.bg-page3{
+    width: 429px;
+    height: 429px;
+    border: 1px solid #1f2b57;
+    background: #233264;
+    position: absolute;
+    bottom:150px;
+    left: 50%;
+    margin: -214px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 113px #283972,
+    0 0 0 114px #223161,
+    0 0 0 193px #2a3d79,
+    0 0 0 194px #273971,
+    0 0 0 254px #2c3f7e,
+    0 0 0 255px #2a3c79;
+    opacity: 0;
+}
+.page3-star{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: url("../images/page3-bg.png") no-repeat;
+    opacity: 0;
+}
+.main-page3{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.cloud{
+    position: absolute;
+    bottom:110px;
+    left: 50%;
+    width: 346px;
+    height: 316px;
+    background: url("../images/page3-ico-02.png") no-repeat;
+    margin-left: -160px;
+    opacity: 0;
+}
+.page3-land{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 640px;
+    height: 185px;
+    background: url("../images/page2-ico1.png") no-repeat;
+    background-size: 640px 185px;
+    opacity: 0;
+}
+.page3-rocket{
+    position: absolute;
+    bottom:338px;
+    left: 50%;
+    width: 117px;
+    height: 277px;
+    margin-left: -58px;
+    background: url("../images/page3-ico-01.png") no-repeat;
+    opacity: 0;
+}
+.child1{
+    position: absolute;
+    bottom:143px;
+    left: 51px;
+    width: 95px;
+    height: 169px;
+    background: url("../images/page3-children-01.png") no-repeat;
+    opacity: 0;
+}
+.child2{
+    position: absolute;
+    bottom:168px;
+    left: 174px;
+    width: 73px;
+    height: 172px;
+    background: url("../images/page3-children-02.png") no-repeat;
+    opacity: 0;
+}
+.child3{
+    position: absolute;
+    bottom:175px;
+    left: 279px;
+    width: 70px;
+    height: 178px;
+    background: url("../images/page3-children-03.png") no-repeat;
+    opacity: 0;
+}
+.child4{
+    position: absolute;
+    bottom:168px;
+    right: 165px;
+    width: 79px;
+    height: 158px;
+    background: url("../images/page3-children-04.png") no-repeat;
+    opacity: 0;
+}
+.child5{
+    position: absolute;
+    bottom:144px;
+    right: 53px;
+    width: 88px;
+    height: 158px;
+    background: url("../images/page3-children-05.png") no-repeat;
+    opacity: 0;
+}
+.page3-pop{
+    position: absolute;
+    bottom:355px;
+    left: 46px;
+    width: 166px;
+    height: 115px;
+    background: url("../images/page3-ico03.png") no-repeat;
+    opacity: 0;
+}
+.page3-text{
+    position: absolute;
+    top:187px;
+    left: 50%;
+    width: 552px;
+    height: 108px;
+    margin-left: -276px;
+    background: url("../images/page3-text.png") no-repeat;
+    opacity: 0;
+}
+section.section-in .bg-page3{
+    animation: show 1s linear 0s forwards;
+    -webkit-animation:show 1s linear 0s forwards;
+}
+section.section-in .page3-land{
+    animation: show 1s linear 0s forwards;
+    -webkit-animation:show 1s linear 0s forwards;
+}
+section.section-in .child1{
+    animation: children .3s linear .8s forwards;
+    -webkit-animation:children .3s linear .8s forwards;
+}
+section.section-in .child2{
+    animation: children .3s linear 1s forwards;
+    -webkit-animation:children .3s linear 1s forwards;
+}
+section.section-in .child3{
+    animation: children .3s linear 1.2s forwards;
+    -webkit-animation:children .3s linear 1.2s forwards;
+}
+section.section-in .child4{
+    animation: children .3s linear 1.4s forwards;
+    -webkit-animation:children .3s linear 1.4s forwards;
+}
+section.section-in .page3-star{
+    animation: show .2s linear 1.5s forwards;
+    -webkit-animation:show .2s linear 1.5s forwards;
+}
+section.section-in .cloud{
+    animation: show .2s linear 1.6s forwards;
+    -webkit-animation:show .2s linear 1.6s forwards;
+}
+section.section-in .page3-rocket{
+    animation: show .2s linear 1.6s forwards;
+    -webkit-animation:show .2s linear 1.6s forwards;
+}
+section.section-in .child5{
+    animation: children .3s linear 1.6s forwards;
+    -webkit-animation:children .3s linear 1.6s forwards;
+}
+section.section-in .page3-pop{
+    animation: show .2s linear 1.8s forwards;
+    -webkit-animation:show .2s linear 1.8s forwards;
+}
+section.section-in .page3-text{
+    animation: show .2s linear 2.1s forwards;
+    -webkit-animation:show .2s linear 2.1s forwards;
+}
+
+section.section-out .bg-page3{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .page3-land{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .child1{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .child2{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .child3{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .child4{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .page3-star{
+    opacity: 1;
+    animation: hide .4s linear 0s forwards;
+    -webkit-animation:hide .4s linear 0s forwards;
+}
+section.section-out .cloud{
+    opacity: 1;
+    animation: hide .1s linear 0s forwards;
+    -webkit-animation:hide .1s linear 0s forwards;
+}
+section.section-out .page3-rocket{
+    opacity: 1;
+    animation: page3RocketOut .6s linear 0s forwards;
+    -webkit-animation:page3RocketOut .6s linear 0s forwards;
+}
+section.section-out .child5{
+    opacity: 1;
+    animation: hide .4s linear .2s forwards;
+    -webkit-animation:hide .4s linear .2s forwards;
+}
+section.section-out .page3-pop{
+    opacity: 1;
+    animation: hide .4s linear 0s forwards;
+    -webkit-animation:hide .4s linear 0s forwards;
+}
+section.section-out .page3-text{
+    opacity: 1;
+    animation: hide .4s linear .4s forwards;
+    -webkit-animation:hide .4s linear .4s forwards;
+}
+
+/*page4*/
+.bg-color4{
+    background: #2d4081;
+    display: none;
+}
+.bg-page4{
+    width: 369px;
+    height: 369px;
+    background: #1a2449;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin: -184px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 87px #283972,
+    0 0 0 88px #223161,
+    0 0 0 154px #2a3d79,
+    0 0 0 155px #273971,
+    0 0 0 207px #2c3f7e,
+    0 0 0 208px #2a3c79;
+    opacity: 0;
+}
+.main-page4{
+    width: 456px;
+    height: 456px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -228px;
+    margin-top:  -270px;
+    border-radius: 50%;
+    background: url("../images/page4-ico1.png") no-repeat center;
+    overflow: hidden;
+    opacity: 0;
+}
+.start-game{
+    display: block;
+    width: 230px;
+    height: 60px;
+    background: #fd5a71;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #353b50;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    margin: 334px auto 0 auto;
+    opacity: 0;
+}
+.page4-text{
+    position: absolute;
+    bottom:206px;
+    left: 50%;
+    width: 427px;
+    height: 43px;
+    margin-left:-213px;
+    background: url("../images/page4-text.png") no-repeat;
+    opacity: 0;
+}
+section.section-in .bg-page4{
+    animation: show .5s linear 0s forwards;
+    -webkit-animation: show .5s linear 0s forwards;
+}
+section.section-in .main-page4{
+    animation: show .5s linear .2s forwards;
+    -webkit-animation: show .5s linear .2s forwards;
+}
+section.section-in .start-game{
+    animation: show .5s linear .2s forwards;
+    -webkit-animation: show .5s linear .2s forwards;
+}
+section.section-in .page4-text{
+    animation: show .5s linear .4s forwards;
+    -webkit-animation: show .5s linear .4s forwards;
+}
+
+section.section-out .bg-page4{
+    opacity: 1;
+    animation: hide .5s linear 0s forwards;
+    -webkit-animation: show .5s linear 0s forwards;
+}
+section.section-out .main-page4{
+    opacity: 1;
+    animation: hide .5s linear 0s forwards;
+    -webkit-animation: show .5s linear 0s forwards;
+}
+section.section-out .start-game{
+    opacity: 1;
+    animation: hide .5s linear 0s forwards;
+    -webkit-animation: show .5s linear 0s forwards;
+}
+section.section-out .page4-text{
+    opacity: 1;
+    animation: hide .5s linear 0s forwards;
+    -webkit-animation: show .5s linear 0s forwards;
+}

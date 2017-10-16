@@ -1,0 +1,166 @@
+@charset "utf-8";
+@import "../../common/initialize";
+@import "common";
+@import "variable";
+html{
+  height: 100%;
+}
+
+body{
+  background: url("../images/about.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.about-box{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.time-line-box{
+  width: 100%;
+  height: 310px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  overflow: hidden;
+
+  .time-line{
+    height: 12px;
+    background: $color-f;
+    opacity: .5;
+    margin-top: 160px;
+  }
+}
+.time-box{
+    display: block;
+    width: 100%;
+    height: 310px;
+    position: absolute;
+    top:0;
+    left: 260px;
+  .today{
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 100px 50px 0 0;
+    float: left;
+    font-size: 36px;
+    color: $color-f;
+  }
+  li{
+    display: block;
+    width: 180px;
+    height: auto;
+    float: left;
+  }
+  .round{
+    width: 72px;
+    height: 72px;
+    margin: 125px auto 0 auto;
+    background: #000;
+    border:4px solid $color-f;
+    @include radius(50%);
+    @include transition(all 1s);
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .year{
+    color: $color-f;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 15px;
+    line-height: 18px;
+  }
+  .date{
+    color: $color-f;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .company-name{
+    color: $color-f;
+    text-align: right;
+    @include transform(translate(-110px, 23px) rotate(-30deg));
+    @include transition(all 1s);
+  }
+}
+.animation{
+  .round{
+    width: 72px;
+    height: 72px;
+    margin: 110px auto 0 auto;
+    background: #ff0000;
+    border:4px solid #ff0000;
+    @include radius(50%);
+    @include transition(all 1s);
+  }
+  .company-name{
+    @include transform(translate(-2px, -115px) rotate(0deg));
+    @include transition(all 1s);
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.details{
+  width: 1000px;
+  height: 400px;
+  margin: 120px auto 0 auto;
+  position: relative;
+  li{
+    width: 1200px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    @include transform(scale(0.2));
+    @include animation(magnify 1s ease-in 0s forwards);
+  }
+  img{
+    width: 438px;
+    height: 267px;
+    float: left;
+    @include radius(5px);
+    @include box-shadow(14px 16px 13px 3px #1f242c);
+  }
+  .details-con{
+    width: 440px;
+    height: 400px;
+    margin-left: 40px;
+    float: left;
+    h3{
+      font-size: 24px;
+      line-height: 35px;
+      text-align: center;
+      color: $color-f;
+      margin-bottom: 20px;
+      font-weight: normal;
+      text-shadow: 5px 5px 5px #1c2027;
+    }
+    .introduction{
+      font-size: 12px;
+      color: $color-f;
+      text-indent: 2rem;
+      margin-bottom: 20px;
+      line-height: 20px;
+    }
+    .responsibilities{
+      font-size: 12px;
+      color: $color-f;
+      line-height: 20px;
+    }
+  }
+}
+
+@include keyframes(magnify){
+  0%{
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}

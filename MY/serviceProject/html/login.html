@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-mw="750">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <link type="text/css" rel="stylesheet" href="../style/common.css">
+    <style>
+        .login{
+            height: 1rem;
+            background: #fff;
+            margin-top: .2rem;
+            padding-left: .24rem;
+            line-height: 1rem;
+        }
+        .login span{
+            display: inline-block;
+            width: 1.4rem;
+            height: 1rem;
+        }
+        .login .tel{
+            width: 5.4rem;
+            height: .8rem;
+        }
+        .login .yz{
+            display: inline-block;
+            width: 3.2rem;
+            height: 1rem;
+        }
+        .login .send{
+            display: inline-block;
+            width: 2.4rem;
+            height: 1rem;
+            float: right;
+            border: 1px solid #ff7133;
+            background: #ff7133;
+            text-align: center;
+            line-height: 1rem;
+            color: #fff;
+
+        }
+        .login .send:disabled{
+            border: 1px solid #dee2ee;
+            background: #f8f8f8;
+            color: #ccc;
+        }
+        .confirm{
+            display: block;
+            width: 6.54rem;
+            height: .86rem;
+            background: #ff7133;
+            text-align: center;
+            line-height: .86rem;
+            color: #fff;
+            margin: .4rem auto 0 auto;
+        }
+        .wrong-tips{
+            line-height: 1rem;
+            text-align: center;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <span>手机号码</span>
+        <input type="tel" class="tel"/>
+    </div>
+    <div class="login">
+        <span>验证码</span>
+        <input type="number" class="yz"/>
+        <input type="button" class="send J_send" value="发送验证码">
+    </div>
+    <a href="javascript:;" class="confirm J_confirm">确定</a>
+    <p class="wrong-tips"></p>
+    <script type="text/javascript" src="../plugins/zepto.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var timer = null;
+            //验证码
+            $(document).on('click','.J_send',function(){
+                var phone = $.trim($('.tel').val());
+                var reg = /^1[0-9]{10}$/;
+                var num = 60;
+                if(!reg.test(phone) || phone ==''){
+                    $('.wrong-tips').text('手机号添写有误，请重新添写');
+                    setTimeout(function(){
+                        $('.wrong-tips').text('');
+                    },3000)
+                }else{
+                    timer = setInterval(function(){
+                        num--;
+                        if(num == 0){
+                            clearInterval(timer);
+                            $('.J_send').val('发送验证码').prop('disabled',false);
+                        }else{
+                            $('.J_send').val('已发送('+ num + 's)').prop('disabled',true);
+                        }
+                    },1000)
+                }
+            });
+            //登录
+            $(document).on('click','.J_confirm',function(){
+                var phone = $.trim($('.tel').val());
+                var reg = /^1[0-9]{10}$/;
+                var yz = $('.yz').val();
+                if(!reg.test(phone) || phone ==''){
+                    $('.wrong-tips').text('手机号添写有误，请重新添写');
+                    setTimeout(function(){
+                        $('.wrong-tips').text('');
+                    },3000)
+                }else{
+                    if(yz != ''){
+                       alert('跳转喽')
+                    }
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

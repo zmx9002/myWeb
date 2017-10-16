@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-mw="750">
+<head>
+    <meta charset="UTF-8">
+    <title>消息</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <link type="text/css" rel="stylesheet" href="../style/common.css">
+    <link type="text/css" rel="stylesheet" href="../style/messageList.css">
+</head>
+<body>
+<section class="message-list" id="messagesListCon">
+
+</section>
+
+<script type="text/html" id="messagesListTpl">
+    {{if json.message}}
+    <ul>
+        {{if json.conversations}}
+        {{each json.conversations as item}}
+        <li class="J_message" data-key="{{item.key}}">
+            <div class="avatar"><img src="{{item.avatar}}"/></div>
+            <div class="msg">
+                <h3 class="name">{{item.name}}</h3>
+                <p class="messages">{{item.key}}</p>
+            </div>
+            <div class="time">{{toTime(item.mtime)}}</div>
+        </li>
+        {{/each}}
+        {{/if}}
+    </ul>
+    {{/if}}
+</script>
+
+
+<script type="text/javascript" src="../plugins/fastclick.min.js"></script>
+<script type="text/javascript" src="../plugins/teamlate.js"></script>
+<script type="text/javascript" src="../plugins/zepto.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../jmessage-sdk-web-2.3.0/jmessage-sdk-web.2.3.0.min.js"></script>
+<script type="text/javascript" src="../plugins/jquery.md5.js"></script>
+<script type="text/javascript">
+    $(document).on('click','.J_message',function(){
+        var key = $(this).data('key');
+        window.location.href = 'message.html?key='+ key;
+    });
+    var appkey = "94192ab409d7de443d2d5b85",
+    random_str = "022cd9fd995849b58b3ef0e943421ed9",
+    timestamp = new Date().getTime(),
+    secret = "ee242cd90d91eb880e3d85cf",
+    signature = hex_md5('appkey=' + appkey + '&timestamp=' + timestamp + '&random_str=' +
+                random_str + '&key=' + secret);
+
+
+    var JIM = new JMessage();
+    JIM.onDisconnect(function(){
+        console.log("【disconnect】");
+    }); //异常断线监听
+
+    //初始化
+    init();
+    function init() {
+        JIM.init({
+            "appkey": appkey,//开发者在极光平台注册的IM应用 appkey
+            "random_str": random_str,//随机字符串
+            "signature": signature,//签名
+            "timestamp": timestamp,//当初时间戳
+            "flag": 1 //是否启用消息记录漫游，默认 0 否，1 是
+        }).onSuccess(function(data) {
+            console.log('init is success');
+            console.log('success:' + JSON.stringify(data));
+            login();
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+        });
+    }
+    //登陆
+    function login() {
+        JIM.login({
+            'username' : 'test1',
+            'password' : '123456'
+        }).onSuccess(function(data) {
+            console.log('login is success');
+            //会话列表
+            JIM.getConversation().onSuccess(function(data) {
+                //data.code 返回码
+                //data.message 描述
+                //data.conversations[] 会话列表，属性如下示例
+                //data.conversations[0].name  会话名称
+                //data.conversations[0].appkey  appkey(单聊)
+                //data.conversations[0].username  用户名(单聊)
+                //data.conversations[0].nickname  用户昵称(单聊)
+                //data.conversations[0].avatar  用户头像 id (单聊)
+                //data.conversations[0].type  会话类型(3 代表单聊会话类型，4 代表群聊会话类型)
+                //data.conversations[0].key会话标识(单聊用户会话标识，群聊代表群组 gid)
+                var html = template('messagesListTpl',{json:data});
+                $('#messagesListCon').html(html);
+                console.log('success:' + JSON.stringify(data));
+
+            }).onFail(function(data) {
+                console.log('error:' + JSON.stringify(data));
+            });
+
+        }).onFail(function(data) {
+            console.log('error:' + JSON.stringify(data));
+        });
+
+        template.helper('toTime', function (time) {
+            var t = Number(time);
+            if (new Date(t).toDateString() === new Date().toDateString()) {
+                return new Date(t).toLocaleString().slice(10,16);
+            } else {
+                return new Date(t).toLocaleString().slice(5,10).replace(/\//g,"月").replace(/\s/g, "日");
+            }
+
+        })
+    }
+</script>
+</body>
+</html>

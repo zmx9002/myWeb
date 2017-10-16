@@ -1,0 +1,160 @@
+@charset "utf-8";
+@import "../../common/initialize";
+@import "common";
+@import "variable";
+body{
+  background: url("../images/bg-5.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section{
+  margin-top:80px;
+}
+.information{
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  .avatar{
+    width: 100px;
+    height: 100px;
+    @include radius(50%);
+    margin: 10px auto;
+    border: 4px solid #000;
+    background: #f7f3ee;
+    transform: translate(0,-50px);
+    opacity: 0;
+    @include animation(avatar .5s linear 0s forwards)
+  }
+  h3{
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: $color-f;
+    margin: 10px auto;
+    font-size: 14px;
+  }
+  .intro{
+    text-align: center;
+    line-height: 25px;
+    font-size: 12px;
+    color: $color-f;;
+  }
+}
+.article-box{
+  margin: 40px 0 0 150px;
+  li{
+    border-left: 2px solid #F1F0EE;
+    position: relative;
+    padding-bottom: 30px;
+    &:before{
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      @include radius(18px);
+      border: 2px solid #F1F0EE;
+      background: #fff;
+      position: absolute;
+      top:0;
+      left: -11px;
+    }
+    .time{
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      background: #F1F0EE;
+      text-align: center;
+      margin:0px 0 30px 55px;
+      position: relative;
+      @include transition(margin .4s linear);
+      &:before{
+        content: "";
+        width: 0;
+        height: 0;
+        border-bottom: 15px solid transparent;
+        border-top: 15px solid transparent;
+        border-right: 18px solid #F1F0EE;
+        position: absolute;
+        top: 0;
+        left: -18px;
+      }
+      &:hover{
+        margin:0px 0 30px 35px;
+        background: #5b5b5b;
+        color: $color-f;
+        @include transition(margin .4s linear);
+        &:before{
+          border-bottom: 15px solid transparent;
+          border-top: 15px solid transparent;
+          border-right: 18px solid #5b5b5b;
+        }
+      }
+    }
+    .title{
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 0 20px 40px;
+
+      a{
+        color: $color-f;
+        text-decoration: underline;
+      }
+    }
+    .intro-img{
+      display: block;
+      width: 260px;
+      height: 150px;
+      margin:20px 0 30px 40px;
+    }
+    .intor-text{
+      margin-left: 40px;
+      line-height: 25px;
+      font-size: 14px;
+      color: $color-f;
+    }
+  }
+}
+.more-box{
+  padding: 50px 0;
+  text-align: center;
+}
+.more{
+  display: inline-block;
+  padding: 0px 20px;
+  margin: 40px auto;
+  border: 2px solid #fff;
+  font-size: 14px;
+  line-height: 40px;
+  @include transition(all 0.2s ease-out);
+  color: $color-f;
+  .more-icon{
+    margin-left: -15px;
+    font-size: 14px;
+    opacity: 0;
+    @include transition(all 0.2s ease-out);
+  }
+  &:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
+    @include transition(all 0.2s ease-out);
+   .more-icon{
+      margin-left: 10px;
+      opacity: 1;
+      @include transition(all 0.2s ease-out);
+    }
+  }
+}
+
+@include keyframes(avatar){
+  0%{
+    transform: translate(0,-50px);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}

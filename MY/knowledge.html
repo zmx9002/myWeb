@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎进入我的个人网站</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <link rel="stylesheet" type="text/css" href="myWeb/css/knowledge.css">
+</head>
+<body>
+<nav class="nav-box">
+    <div class="wrap">
+        <h3 class="logo fl"></h3>
+        <ul class="nav-content fr">
+            <li>
+                <a href="index.html">我的首页</a>
+            </li>
+            <li>
+                <a href="case.html">项目展示</a>
+            </li>
+            <li class="current-menu">
+                <a href="knowledge.html">知识积累</a>
+            </li>
+            <li>
+                <a href="me.html">关于我</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section>
+    <div class="information">
+        <div class="avatar"><img src="myWeb/images/avator.png"/></div>
+        <h3>MENGXUE</h3>
+        <div class="intro">有事做，有人爱，有所期待....</div>
+        <article>
+            <ul class="article-box">
+                <li>
+                    <div class="time">2017.02.25</div>
+                    <div class="title"><a href="http://www.cnblogs.com/zmx-web/p/7199183.html"  target="_blank">闭包理解</a></div>
+                    <div class="artitle-introduction">
+                        <p class="intor-text">各种专业文献上的“闭包”（closure）定义非常抽象，很难看懂。 由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。 所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">2017.02.17</div>
+                    <div class="title"><a href="http://www.cnblogs.com/zmx-web/p/7194254.html"  target="_blank">弹性盒模型</a></div>
+                    <div class="artitle-introduction">
+                        <p class="intor-text">新版： 父元素：dispaly:flex 主轴方向设置：flex-direction:row(水平方向，默认) flex-direction:column(垂直方向) 主轴上元素方向排列设置：flex-direction:row-reverse (水平居右，从右往左排)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">2017.02.02</div>
+                    <div class="title"><a href="http://www.cnblogs.com/zmx-web/p/7111609.html"  target="_blank">常见报错类型</a></div>
+                    <div class="artitle-introduction">
+                        <!--<img src="myWeb/images/case_03.png" class="intro-img"/>-->
+                        <p class="intor-text">400 错误请求 —— 请求中有语法问题，或不满足语法（参数不对、拼写错误等）</p>
+                        <p class="intor-text">404   找不到 — 服务器找不到给定的资源；文档不存在。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">2017.02.02</div>
+                    <div class="title"><a href="http://www.cnblogs.com/zmx-web/p/7111603.html"  target="_blank">JS相似属性区别</a></div>
+                    <div class="artitle-introduction">
+                        <p class="intor-text">1、prop与attr区别<br/>
+                            在浏览器中，有的要写成disabled= 'disabled'，checked="checked",有的只要写disabled就可以了，比如用attr("checked")获取checkbox的checked属性时，选中的时候可以取到值，值为checked，但没选中获取值就是undefined。</p>
+                    </div>
+                </li>
+               <li>
+                <div class="time">2015.11.04</div>
+                <div class="title"><a href="http://www.cnblogs.com/zmx-web/p/7111599.html" target="_blank">html/css兼容性问题</a></div>
+                <div class="artitle-introduction">
+                    <p class="intor-text">当我遇见IE6，真的是觉得自己掉进深坑了，于是开始研究了一下各大浏览兼容性问题，暂且记录在这里，以便随时查看。<br/>
+                        1. IE6下内容会撑开设置好的宽高，所以计算一定要精确，内容的宽度要减去padding值<br/>
+                        2. IE6下，如果宽度城要内容撑开，就要给里面的块元素都加浮动<br/>
+                        3. IE6下，高度小于19px会当做19px处理，解决方法：overflow:hidden;<br/>
+                        4. IE6下，父级有边框的时候，子元素的margin值消失。   解决方法：解发haslayout   .class{zoom:1;}</p>
+                </div>
+            </li>
+            </ul>
+            <div class="more-box">
+                <a href="http://www.cnblogs.com/zmx-web/" class="more" target="_blank">查看更多请进入博客园<i class="iconfont more-icon">&#xe600;</i></a>
+            </div>
+
+        </article>
+    </div>
+</section>
+<footer>
+    多谢光临 | 浙ICP备17029183号-1 Copyright ©2017 周梦雪
+</footer>
+</body>
+</html>

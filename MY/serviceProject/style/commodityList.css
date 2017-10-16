@@ -1,0 +1,170 @@
+@charset "utf-8";
+body{
+    background: #eee;
+}
+.search{
+    padding: .2rem;
+}
+.search input{
+    display: inline-block;
+    width: 6rem;
+    height: .4rem;
+    border-radius: .05rem;
+    padding: 0 .2rem;
+}
+.shop-list{
+    margin: .1rem 0 2rem 0;
+}
+.shop-list li{
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: .1rem;
+    padding:.2rem;
+}
+.shop-list li .avatar{
+    width: .8rem;
+    height: .8rem;
+    border-radius: .4rem;
+    background: #eee;
+    overflow: hidden;
+    float: left;
+}
+.shop-list li .avatar img{
+    display: block;
+    width: .8rem;
+    height: .8rem;
+}
+.shop-list li .shop{
+    float: left;
+    width: 4.4rem;
+    margin-left: .2rem;
+}
+.shop-list li .shop h3{
+    font-size: .14rem;
+    line-height: .4rem;
+    color: #333;
+}
+.shop-list li .shop p{
+    font-size: .12rem;
+    line-height: .3rem;
+    color: #666;
+}
+.shop-list .shop-in{
+    display: block;
+    float: left;
+    width:1.7rem;
+    height: .5rem;
+    text-align: center;
+    line-height: .5rem;
+    border-radius: .05rem;
+    border: 1px solid #666;
+    font-size: .14rem;
+    color: #333;
+    margin-top: .1rem;
+}
+
+
+.sort-box{
+    height: 1rem;
+    overflow: hidden;
+    background: #fff;
+}
+.sort{
+    width: 33.33%;
+    text-align: center;
+    float: left;
+    line-height: 1rem;
+}
+
+/*商品列表两排*/
+.commodity-two li{
+    width: 3.6rem;
+    overflow: hidden;
+    background: #fff;
+    float: left;
+    margin: .07rem;
+}
+.commodity-two .pic{
+    width: 3.6rem;
+    height: 1.6rem;
+}
+.commodity-two .pic img{
+    width: 3.6rem;
+    height: 1.6rem;
+}
+.commodity-two .commodity-right{
+    width: 100%;
+}
+.commodity-two .shop-name{
+    padding: 0 .08rem;
+    line-height: .3rem;
+    height: .6rem;
+    overflow: hidden;
+}
+.commodity-two .shop-num{
+    line-height: .4rem;
+    color: #999;
+}
+.commodity-two .shop-num{
+    line-height: .4rem;
+    color: #999;
+    padding-left: .1rem;
+}
+.commodity-two .shop-sale{
+    padding: 0 .1rem .4rem .1rem;
+}
+.commodity-two .shop-sale .price{
+    float: left;
+}
+.commodity-two .shop-sale .sales{
+    float: right;
+    color: #999;
+}
+
+/*商品列表单排*/
+.commodity-one li{
+    overflow: hidden;
+    background: #fff;
+    padding: .1rem;
+    margin: .07rem 0;
+}
+.commodity-one .pic{
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: .2rem;
+    float: left;
+    background: #eee;
+}
+.commodity-one .pic img{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.commodity-one .commodity-right{
+    width: 5rem;
+    float: left;
+}
+.commodity-one .shop-name{
+    line-height: .3rem;
+    height: .6rem;
+    overflow: hidden;
+}
+.commodity-one .shop-num{
+    line-height: .4rem;
+    color: #999;
+}
+.commodity-one .shop-num{
+    line-height: .4rem;
+    color: #999;
+}
+.commodity-one .shop-sale .price{
+    float: left;
+}
+.commodity-one .shop-sale .sales{
+    float: right;
+    color: #999;
+}
+.change-hide i{
+    display: inline-block;
+    width: 1rem;
+}

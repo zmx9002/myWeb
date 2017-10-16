@@ -1,0 +1,250 @@
+@charset "utf-8";
+.mine-box{
+    padding: .3rem;
+    height: 2.4rem;
+    overflow: hidden;
+    background: -webkit-linear-gradient(#ff7133, #ff9527);
+    background: linear-gradient(#ff7133, #ff9527);
+}
+.mine-box .avatar{
+    width: 1rem;
+    height: 1rem;
+    border: .02rem solid #fff;
+    margin: 0 auto;
+    background: #eee;
+    border-radius: .5rem;
+}
+.mine-box .name{
+    text-align: center;
+    font-size: .32rem;
+    color: #fff;
+    line-height: .46rem;
+    margin-top: .08rem;
+}
+.mine-box .account{
+    text-align: center;
+    color: #fff;
+    line-height: .36rem;
+    font-size: .24rem;
+}
+.order-box{
+    padding: 0 .26rem;
+    background: #fff;
+    height: 2.22rem;
+}
+.order-box .order{
+    height: .76rem;
+    line-height: .76rem;
+    border-bottom: 1px solid #eee;
+}
+.order-box .order a{
+    float: right;
+    color: #999;
+    font-size: .24rem;
+}
+.order-box ul{
+    display: block;
+    width: 100%;
+    height: 1.44rem;
+    background: #fff;
+}
+.order-box li{
+    float: left;
+    width: .98rem;
+    text-align: center;
+    margin-top: .3rem;
+}
+.order-box li i{
+    display: block;
+    width: .98rem;
+    height: .4rem;
+    margin-bottom: .22rem;
+    position: relative;
+}
+.order-box li p{
+    font-size: .24rem;
+    color: #999;
+}
+.order-box li .tips{
+    position: absolute;
+    top:-0.15rem;
+    right:-0.15rem;
+    height: .3rem;
+    padding: 0 .1rem;
+    background: #fb4276;
+    border-radius: .15rem;
+    color: #fff;
+    font-size: .2rem;
+}
+.list{
+    margin-top: .3rem;
+}
+.list li{
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background: #fff;
+    margin-bottom: .02rem;
+    padding: 0 .2rem;
+    font-size: .28rem;
+    color: #222;
+}
+.list li .icon-left{
+    display: inline-block;
+    width: .34rem;
+    height: .34rem;
+    margin-right: .42rem;
+    vertical-align: middle;
+}
+
+.list li .next{
+    float: right;
+}
+.login-out{
+    display: block;
+    margin-top: .22rem;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background: #fff;
+    font-size: .28rem;
+    color: #fb4276;
+    text-align: center;
+}
+.pop{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.stock-order{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:7.5rem;
+    background: #fff;
+    padding: .2rem;
+}
+.stock-order .shop{
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    padding-bottom: .2rem;
+    position: relative;
+}
+.stock-order .close{
+    position: absolute;
+    top:0;
+    right:0;
+    width: .5rem;
+    height: .5rem;
+    text-align: center;
+    line-height: .5rem;
+}
+.stock-order .shop-avatar{
+    width: 1rem;
+    height: 1rem;
+    float: left;
+    background: #eee;
+}
+.stock-order .shop-avatar img{
+    width: 1rem;
+    height: 1rem;
+}
+.stock-order .shop-name{
+    float: left;
+    margin-left: .3rem;
+}
+.shop-name p{
+    line-height: .3rem;
+    color: #333;
+}
+.pop-srcoll{
+    max-height: 5rem;
+    overflow: auto;
+}
+.stock-order .color,.stock-order .size{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: .2rem;
+    border-bottom: 1px solid #eee;
+}
+.stock-order .color h3{
+    font-size: .14rem;
+    line-height: .6rem;
+}
+.stock-order .color li{
+    display: inline-block;
+    height: .35rem;
+    padding: 0 .4rem;
+    border: 1px solid #eee;
+    margin-right: .2rem;
+}
+.stock-order li.active{
+    background: red;
+    color:#fff;
+}
+.stock-order .size li{
+    height: .8rem;
+    line-height: .8rem;
+    overflow: hidden;
+}
+.stock-order .size .size-tip{
+    display: block;
+    float: left;
+    width: .6rem;
+}
+.stock-order .size .size-price{
+     display: block;
+     float: left;
+     width: 1.4rem;
+}
+.stock-order .size h3{
+    height: .8rem;
+    line-height: .8rem;
+    overflow: hidden;
+}
+.stock-order .size .size-add,.stock-order .size .size-sub{
+    display: block;
+    float: left;
+    width:.4rem;
+    height: .4rem;
+    border-radius: .2rem;
+    text-align: center;
+    line-height: .4rem;
+    border: 1px solid #eee;
+    background: #fff;
+    margin-top: .2rem;
+}
+.stock-order .size .size-num{
+    display: block;
+    float: left;
+    width:2rem;
+    height: .4rem;
+    line-height: .4rem;
+    border: 1px solid #eee;
+    background: #fff;
+    margin: .2rem;
+   text-align: center;
+}
+.stock-order .total{
+    height: .6rem;
+    line-height: .6rem;
+    text-align: right;
+    padding-right: .4rem;
+}
+.pop-btn{
+    border-top: 1px solid #eee;
+}
+.pop-btn a{
+    display: block;
+    width: 50%;
+    height: 1rem;
+    float: left;
+    text-align: center;
+    line-height: 1rem;
+}

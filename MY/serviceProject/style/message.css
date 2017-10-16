@@ -1,0 +1,148 @@
+@charset "utf-8";
+.message-wrap{
+    width: 100%;
+    padding: .5rem .2rem 0 .2rem;
+    margin-bottom: 1rem;
+}
+.message-wrap ul{
+    display: block;
+    width:100%;
+    overflow: hidden;
+}
+.message-btn{
+    width: 100%;
+    min-height: 1rem;
+    height: auto;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.message-wrap li{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: .2rem;
+}
+.message-wrap li.left{
+    float: left;
+}
+.message-wrap li.left .avatar{
+    float: left;
+    width: .6rem;
+    height: .6rem;
+    border-radius: .3rem;
+    background: #eee;
+    margin-right: .15rem;
+}
+.message-wrap li.left .content{
+    float: left;
+    padding: .15rem;
+    background: #fff;
+    position: relative;
+    max-width: 6.3rem;
+}
+.message-wrap li.left i{
+    position: absolute;
+    top:-0.02rem;
+    left: -0.26rem;
+    display: block;
+    width: .4rem;
+    height: .4rem;
+    font-size: .4rem;
+    color: #fff;
+}
+
+.message-wrap li.right{
+    float: right;
+    width: 100%;
+    overflow: hidden;
+}
+.message-wrap li.right .avatar{
+    float: right;
+    width: .6rem;
+    height: .6rem;
+    border-radius: .3rem;
+    background: #eee;
+    margin-left: .15rem;
+}
+.message-wrap li.right .content{
+    float: right;
+    padding: .15rem;
+    background: #fff;
+    position: relative;
+    max-width: 6.3rem;
+}
+.message-wrap li.right i{
+    position: absolute;
+    top:-0.02rem;
+    right: -0.26rem;
+    display: block;
+    width: .4rem;
+    height: .4rem;
+    font-size: .4rem;
+    color: #fff;
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+}
+.message-text{
+    display: inline-block;
+    border: 1px solid #999;
+    border-radius: .04rem;
+    width: 5.5rem;
+    line-height: .6rem;
+    height: auto;
+    margin: .2rem 0 .2rem .2rem;
+    padding: 0 0.2rem;
+    outline: none;
+}
+.voice-btn{
+    display: inline-block;
+    border: 1px solid #999;
+    width: 5.5rem;
+    height: .6rem;
+    margin: .2rem 0 .2rem .2rem;
+    outline: none;
+    background: #f0f0f0;
+}
+.send{
+    display: none;
+    width: .9rem;
+    height: .6rem;
+    background: #00aafb;
+    color: #fff;
+    line-height: .6rem;
+    margin: .2rem 0;
+    border-radius: .1rem;
+    vertical-align: top;
+}
+.add-ico{
+    font-size: .48rem;
+    color: #999;
+    line-height: 1rem;
+    vertical-align: middle;
+    margin-left: .2rem;
+}
+.voice-ico{
+    font-size: .54rem;
+    color: #999;
+    line-height: 1rem;
+    vertical-align: middle;
+    margin-left: .2rem;
+}
+.keyboard-ico{
+    display: none;
+    font-size: .5rem;
+    color: #999;
+    line-height: 1rem;
+    vertical-align: middle;
+    margin-left: .2rem;
+}
+.other{
+    width: 100%;
+    height:0;
+    background: #fff;
+}
+.show{
+    height:4rem;
+    transition: height .4s  .2s linear ;
+}

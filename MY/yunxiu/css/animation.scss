@@ -1,0 +1,268 @@
+@charset "utf-8";
+//footer
+.page1-footer {
+  @include animation(ftDown 2s ease-out 0s infinite);
+}
+@include keyframes(ftDown){
+  0%{
+     transform: translate(0,-20px);
+   }
+  50%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(0,-20px);
+  }
+}
+//page1 文字动画
+.one-page{
+  h3{
+    @include animation(summaryLeft 1s ease-out 0s forwards)
+  }
+  .article-text{
+    @include  animation(summaryLeft 1s ease-out 0s forwards)
+  }
+  .article-text:nth-of-type(2){
+    @include  animation(summaryLeft 1s ease-out .3s forwards)
+  }
+  li:first-child{
+    @include animation(summaryDown 1s ease-in 1s forwards)
+  }
+  li:nth-child(2){
+    @include animation(summaryDown 1s ease-in 1.2s forwards)
+  }
+  li:nth-child(3){
+    @include animation(summaryDown 1s ease-in 1.4s forwards)
+  }
+}
+@include keyframes(summaryLeft){
+  form{
+    opacity: 0;
+    transform: translate(-100px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+@include keyframes(summaryDown){
+  form{
+    opacity: 0;
+    transform: translate(0,-60px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+.one-page .img-box{
+  @include animation(op 1.5s ease-in 0s forwards);
+  img{
+    &:first-child{
+      @include animation(moveImg1 1s ease-in 0s forwards)
+    }
+    &:last-child{
+      @include animation(moveImg2 1s ease-in 0s forwards)
+    }
+  }
+}
+//page1图片动画
+@include keyframes(op){
+  form{
+    opacity:.5;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@include keyframes(moveImg1){
+  form{
+    transform: translate(-100px,0);
+  }
+  to{
+    transform: translate(0,0);
+  }
+}
+@include keyframes(moveImg2){
+  form{
+    transform: translate(-145px,0);
+  }
+  to{
+    transform: translate(0,0);
+  }
+}
+
+//page2文字动画
+.two-page{
+  h3{
+    @include animation(summaryRight 1s ease-out .5s forwards);
+  }
+  .marking-text{
+    @include animation(summaryRight 1s ease-out 1s forwards);
+  }
+}
+@include keyframes(summaryRight){
+  form{
+    opacity: 0;
+    transform: translate(350px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+//page2 图片动画
+.two-page .stage{
+  .di_1{
+    @include animation(moveUp 1s ease-out 0s forwards);
+  }
+  .di_2,.di_3{
+    @include animation(moveUp 1s ease-out .5s forwards);
+  }
+  .di1_shadow{
+    @include animation(shadowOp 1s ease-out 1s forwards);
+  }
+  .di2_shadow,.di3_shadow{
+    @include animation(shadowOp 1s ease-out 1.5s forwards);
+  }
+  .top_1{
+    @include animation(moveTop1 1s linear 1.7s forwards);
+  }
+  .top_3{
+    @include animation(moveTop3 1s linear 1.7s forwards);
+  }
+  .title-text1,.title-text2,.title-text3{
+    @include animation(shadowOp .2s linear 2.7s forwards);
+    p{
+      @include animation(shadowOp .2s linear 3.1s forwards);
+    }
+  }
+  .title-text3:after,.title-text2:after,.title-text1:after{
+      @include animation(moveLine .2s ease-out 2.9s forwards);
+  }
+}
+
+@include keyframes(moveUp){
+  form{
+    transform:translate(0,0);
+  }
+  to{
+    transform: translate(0,-20px);
+  }
+}
+@include keyframes(moveTop1){
+  form{
+    transform:translate(120px,120px);
+    opacity: 0;
+  }
+  to{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@include keyframes(moveTop3){
+  form{
+    transform:translate(33px,32px) scale(0.2);
+    opacity: 0;
+  }
+  to{
+    transform:translate(0,0) scale(1);
+    opacity: 1;
+  }
+}
+@include keyframes(moveLine){
+  form{
+    height: 0;
+  }
+  to{
+    height: 34px;
+  }
+}
+@include keyframes(shadowOp){
+  form{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+//page3动画
+.three-page{
+  h3{
+    @include animation(textLeft 1s linear .5s forwards)
+  }
+  .article-text{
+    @include animation(textLeft .5s linear .7s forwards)
+  }
+  .bg-box1{
+    @include animation(imgRight .5s linear 1s forwards)
+  }
+  .bg-box2{
+    @include animation(imgRight .5s linear .3s forwards)
+  }
+  .bg-box3{
+    @include animation(imgRight .5s linear 0s forwards)
+  }
+  .top_box1{
+    @include animation(topShadow .5s linear 1.2s forwards)
+  }
+  .top_box2{
+    @include animation(topShadow .5s linear 1.6s forwards)
+  }
+  .top_box3{
+    @include animation(topShadow .5s linear 2s forwards)
+  }
+  .top-shadow1{
+    @include animation(showShadow .4s linear 1.4s forwards)
+  }
+  .top-shadow2{
+    @include animation(showShadow .4s linear 1.8s forwards)
+  }
+  .top-shadow3{
+    @include animation(showShadow .4s linear 2.2s forwards)
+  }
+}
+
+@include keyframes(textLeft){
+   form{
+     opacity: 0;
+     transform: translate(-100px,0);
+   }
+   to{
+     opacity: 1;
+     transform: translate(0,0);
+   }
+ }
+
+@include keyframes(imgRight){
+  form{
+    opacity: 0;
+    transform: translate(200px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+@include keyframes(topShadow){
+  form{
+    opacity: 0;
+    @include transform(translate(28px,30px) scale(0.4));
+  }
+  to{
+    opacity: 1;
+    @include transform(translate(0,0) scale(1));
+  }
+}
+@include keyframes(showShadow){
+  form{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-mw="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <title>进货单</title>
+    <link type="text/css" rel="stylesheet" href="../style/common.css">
+    <link type="text/css" rel="stylesheet" href="../style/purshase.css">
+</head>
+<body>
+<section id="orderListCon">
+
+</section>
+<section class="footer">
+    <a href="javascript:;" class="orders f_right">下单</a>
+    <div class="f_right">
+        <p>总计：<span>￥<i class="total-price">0</i></span></p>
+        <p>共<span class="total-num">0</span>件</p>
+    </div>
+</section>
+<script type="text/html" id="orderListTpl">
+    {{if json.success }}
+    {{if json.data && json.data.orderList}}
+    {{each json.data.orderList as item}}
+    <div class="order-box">
+        <div class="list">
+            <div class="order-commodity">
+                <label>
+                    <input type="checkbox" class="f_left J_size_check" />
+                    <span></span>
+                </label>
+                <div class="commodity-pic f_left"><img src="{{item.shopImg}}"/></div>
+                <div class="commodity-inof f_left">
+                    <h3>{{item.shopTitle}}</h3>
+                    <p>货号:{{item.goodsNum}} 库存：3000</p>
+                </div>
+                <a href="javascript:;" class="delete J_delete">删除</a>
+            </div>
+        </div>
+        {{each item.sizeList as subItem}}
+         <div class="size-list clearfix">
+             <label>
+                 <input type="checkbox" class="f_left commodity-check-sub"/>
+                 <span></span>
+             </label>
+             <div class="size-info f_left">
+                 <div class="single-price f_left">
+                     <p>颜色：{{subItem.color}}；尺码：{{subItem.size}}</p>
+                     <p><span class="single-price-text">{{subItem.singlePrice}}</span>/件</p>
+                 </div>
+                 <div class="f_right size-number">
+                     <input type="button" value="-" class="sub J_sub"/>
+                     <input type="text" value="0" class="number"/>
+                     <input type="button" value="+" class="add J_add"/>
+                 </div>
+             </div>
+         </div>
+        {{/each}}
+    </div>
+    {{/each}}
+    {{/if}}
+    {{/if}}
+</script>
+<script type="text/javascript" src="../plugins/fastclick.min.js"></script>
+<script type="text/javascript" src="../plugins/teamlate.js"></script>
+<script type="text/javascript" src="../plugins/zepto.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/shopIndex.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var doc = $(document);
+        $.ajax({
+            url:'../json/orderManage.json',
+            success:function(result){
+                if(result.success){
+                    var html = template('orderListTpl',{json:result});
+                    $('#orderListCon').html(html)
+                }
+            }
+        });
+
+        doc.on('click','.J_size_check',function(){
+            var check = $(this).parents('.order-box').find('input[type=checkbox]');
+            if( $(this).is(':checked')){
+                check.prop('checked',true)
+            }else{
+                check.prop('checked',false)
+            }
+        });
+        doc.on('click','input[type="checkbox"]',function(){
+            total()
+        });
+
+        doc.on('click','.J_add',function(){
+            var num = $(this).prev().val();
+            num++;
+            $(this).prev().val(num);
+            total();
+        });
+
+        doc.on('click','.J_sub',function(){
+            var num = $(this).next().val();
+            num--;
+            if(num <= 0){
+                $(this).next().val(0);
+            }else{
+                $(this).next().val(num);
+            }
+            total();
+        });
+
+        function total(){
+            var totalNumber = 0, totalPrice = 0,price = 0;
+            for(var i=0; i < $('.number').length; i++){
+                if($('.number').eq(i).parents('.size-list').find('input[type="checkbox"]').is(':checked')){
+                    totalNumber += Number($('.number').eq(i).val());
+                    totalPrice += $('.number').eq(i).val() * $('.single-price-text').eq(i).text().substr(1);
+                }
+            }
+            $('.total-num').text(totalNumber);
+            $('.total-price').text(totalPrice);
+        }
+        var startX = 0;
+        var startY = 0;
+        doc.on('touchstart','.order-commodity',function(ev){
+            startX = ev.originalEvent.changedTouches[0].pageX,
+            startY = ev.originalEvent.changedTouches[0].pageY;
+        });
+
+        doc.on('touchmove','.order-commodity',function(ev){
+            var moveEndX = ev.originalEvent.changedTouches[0].pageX;
+            var moveEndY = ev.originalEvent.changedTouches[0].pageY;
+            var X = moveEndX - startX;
+            var Y = moveEndY - startY;
+            var width = $('.J_delete').width();
+
+            if( Math.abs(X) > Math.abs(Y) && X < 0 ){
+                $('.order-commodity').css({
+                    'transform':'translateX('+0 +'px)',
+                    'transition':'0.3s'
+                });
+                $(this).css({
+                    'transform':'translateX('+(-width) +'px)',
+                    'transition':'0.3s'
+                });
+            }
+
+            if( Math.abs(X) > Math.abs(Y) && X > 0 ){
+                $(this).css({
+                    'transform':'translateX('+ 0 +'px)',
+                    'transition':'0.3s'
+                });
+            }
+        });
+        doc.on('click','.J_delete',function(){
+            $(this).parents('.order-box').remove();
+            total();
+        })
+    })
+</script>
+</body>
+</html>
